@@ -1,0 +1,44 @@
+# Ignore Python byte code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore environment-specific files
+.env
+.env.*
+
+# Ignore database files (if using SQLite)
+db.sqlite3
+
+# Ignore static files collected by Django
+staticfiles/
+
+# Ignore media files uploaded by users
+media/
+
+# Ignore Django migration files
+**/migrations/
+
+# Ignore secret settings (sensitive data)
+secret_settings.py
+
+# Ignore logs and other generated files
+logs/
+*.log
+
+# Ignore virtual environment
+venv/
+env/
+
+# Ignore IDE-specific files (example for VSCode)
+.vscode/
+
+# Ignore any other temporary or generated files/directories
+*.tmp
+*.bak
+*.swp
+*.DS_Store
