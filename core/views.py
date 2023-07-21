@@ -1,7 +1,5 @@
 from django.shortcuts import render
-
 from datetime import date, timedelta
-import plotly.graph_objects as go
 
 def index(request):
     one_year_ago = date.today() - timedelta(days=365)
