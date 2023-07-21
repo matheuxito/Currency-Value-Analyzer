@@ -2,11 +2,11 @@
 
 {% block content %}
 <div class="mt-8 flex flex-col justify-between items-center w-full">
-    <div class="flex items-end bg-white border-2 border-sky-800 rounded-lg h-3/5 w-3/5 shadow-xl p-1">
+    <div class="flex items-end bg-white md:border-2 border-sky-800 md:rounded-lg h-3/5 md:w-3/5 w-full md:shadow-xl p-1">
         <div id="chart" class="h-full w-full"></div> <!-- Gráfico de linhas -->
     </div>
-    <div class="custom-bg-2 px-10 py-4 rounded-xl border border-2 border-sky-800 h-auto w-3/4 mb-6 shadow-xl">
-        <div class="grid grid-cols-4 w-full font-semibold text-sky-800">
+    <div class="custom-bg-2 md:px-10 pl-16 pr-10 py-4 md:rounded-xl border md:border-x-2 border-y-2 border-sky-800 h-auto md:w-3/4 w-full mb-6 shadow-xl">
+        <div class="grid md:grid-cols-4 grid-cols-2 w-full font-semibold text-sky-800">
             <div class="flex flex-col gap-1">
                 Base
                 <div class="flex items-center">
@@ -36,7 +36,7 @@
                         <option value="HRK">HRK - Croatian Kuna</option>
                         <option value="THB">THB - Thai Baht</option>
                     </select>
-                    <a id="swapCurrencies" class="ml-[1.2rem]">
+                    <a id="swapCurrencies" class="ml-[0.6rem] xl:ml-[1.2rem]">
                         <i class="fas fa-right-left text-xl text-sky-800 hover:text-sky-600 cursor-pointer" title="Swap currencies"></i>
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                     <option value="THB">THB - Thai Baht</option>
                 </select>
             </div>
-            <div class="flex flex-col gap-1 col-span-2 ml-32">
+            <div class="flex flex-col gap-1 col-span-2 md:ml-32 ml-16 md:mt-0 mt-8">
                 Period
                 <div class="flex gap-3">
                     <input type="date" id="startDate" class="border border-sky-800 rounded-md p-1" 
@@ -81,10 +81,10 @@
                             max="{{ current_date|date:'Y-m-d' }}">
                 </div>
             </div>
-            <div class="flex justify-center mr-10">
+            <div class="flex justify-center mr-10 md:flex hidden">
                 <img id="baseCurrencyFlag" src="https://www.countryflagicons.com/FLAT/64/US.png">
             </div>
-            <div class="flex justify-center mr-10">
+            <div class="flex justify-center mr-10 md:flex hidden">
                 <img id="targetCurrencyFlag" src="https://www.countryflagicons.com/FLAT/64/BR.png">
             </div>
         </div>
@@ -133,6 +133,18 @@
                 },
             };
             
+            const annotations = [];
+            if (window.innerWidth > 768) {
+                annotations.push({
+                    x: 1,
+                    y: 1.3,
+                    xref: 'paper',
+                    yref: 'paper',
+                    text: `1 ${baseCurrency} = ${rates[rates.length - 1]} ${targetCurrency} | ${formattedDate}`,
+                    showarrow: false,
+                });
+            }
+
             const layout = {
                 title: `${baseCurrency} to ${targetCurrency} Chart`,
                 titlefont: {
@@ -142,13 +154,13 @@
                 },
                 yaxis: {
                     title: {
-                        text: 'Exchange Rate',
-                        standoff: 15,
-                        standangle: 30,
-                        font: {
-                            color: 'rgb(7, 89, 133)',
-                            size: 14,
-                        },
+                    text: 'Exchange Rate',
+                    standoff: 15,
+                    standangle: 30,
+                    font: {
+                        color: 'rgb(7, 89, 133)',
+                        size: 14,
+                    },
                     },
                     fixedrange: true,
                 },
@@ -156,16 +168,7 @@
                     fixedrange: true,
                 },
                 staticPlot: true,
-                annotations: [
-                {
-                    x: 1,
-                    y: 1.3,
-                    xref: 'paper', 
-                    yref: 'paper', 
-                    text: `1 ${baseCurrency} = ${rates[rates.length - 1]} ${targetCurrency} | ${formattedDate}`, 
-                    showarrow: false, 
-                },
-                ],
+                annotations: annotations,
             };
             const config = {
                 modeBarButtonsToRemove: [
