@@ -1,6 +1,14 @@
 asgiref==3.7.2
+certifi==2023.5.7
+charset-normalizer==3.2.0
 Django==4.2.3
+fontawesome-free==5.15.4
 fontawesomefree==6.4.0
+idna==3.4
+packaging==23.1
+requests==2.31.0
 sqlparse==0.4.4
+tenacity==8.2.2
+typing_extensions==4.7.1
 tzdata==2023.3
 urllib3==2.0.4
