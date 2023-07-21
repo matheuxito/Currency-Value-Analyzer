@@ -1,0 +1,34 @@
+<!doctype html>
+{% load static %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="{% static 'fontawesomefree/js/fontawesome.js' %}"></script>
+        <script src="{% static 'fontawesomefree/js/solid.js' %}"></script>
+        <script src="{% static 'fontawesomefree/js/brands.js' %}"></script>
+            
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        
+        <title>Django-Dashboard</title>
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <header class="bg-sky-800 py-10 flex justify-center">
+            <div class="flex justify-center items-center bg-white rounded-xl p-4 shadow-2xl">
+                <h1 class="text-sky-800 text-4xl font-bold">Currency Value Analyzer <i class="ml-2 fa-solid fa-coins"></i></h1>
+            </div>
+        </header>
+        <div class="h-full flex flex-grow custom-bg">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer class="flex flex-col h-10 py-2 px-4 justify-end bg-white text-sm text-sky-800 font-semibold">
+            <span class="flex justify-center items-center gap-1">
+                By: <a href="https://github.com/matheuxito" target="_blank">@matheuxito <i class="fab fa-github mx-1"></i></a>
+             </span>  
+        </footer>
+    </body>
+</html>
