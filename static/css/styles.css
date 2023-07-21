@@ -1,4 +1,9 @@
 .custom-bg {
     background: rgb(7,89,133);
-    background: linear-gradient(180deg, rgba(7,89,133,1) 20%, rgba(56,189,248,1) 70%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(90deg, rgba(7,89,133,1) 10%, rgba(56,189,248,1) 100%);
+}
+
+.custom-bg-2 {
+    background: #bae6fd;
+    background: linear-gradient(90deg, #bae6fd 30%, #e0f2fe 100%);
 }
